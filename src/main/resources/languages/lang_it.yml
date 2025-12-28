@@ -1,0 +1,72 @@
+default-command: "trofei" # /trofei
+
+#######################################
+#     Placeholders disponibili:       #
+# %trophy% -> trophy Name             #
+# %trophyId% -> trophy ID             #
+# %trophySlot% -> trophy Slot         #
+# %trophyMaterial% -> trophy Material #
+# %trophyLore% -> trophy Lore         #
+# %player% -> player Name             #
+# %playerDisplayname% -> player Alias #
+#######################################
+
+command:
+  delete: "&cTrofeo %trophyId% &celiminato"
+  give: "&aTrofeo %trophyId% &adato al giocatore &e%player%"
+  purge: "&cGiocatore &e%player% &cpurgato"
+  remove: "&aTrofeo %trophyId% &arimosso dal giocatore &e%player%"
+
+trophy:
+  placed: "&aTrofeo %trophy% &aposizionato nella tua bacheca!"
+  inexistent: "&cIl trofeo %trophy% &cnon esiste"
+  id: "&aID impostato su %trophyId%"
+  name: "&aNome visualizzato del trofeo impostato su %trophy%"
+  material: "&eMateriale aggiornato a &f%trophyMaterial%"
+  slot: "&3Slot impostato su &e%trophySlot%"
+  lore: "&eNuova descrizione impostata come: %trophyLore%"
+  deleted: "&cTrofeo &r%trophy% &celiminato"
+
+gui:
+  showcase: "&6&lI tuoi trofei"
+  create: "&d&lCreazione trofeo"
+  manage: "&d&lGestisci il tuo trofeo"
+  list: "&a&lTutti i trofei"
+  admin: "&e&lMenu Admin"
+  noSlot: "&cTrofei senza slot"
+
+buttons:
+  setName:
+    name: "&6Imposta Nome"
+    lore: "&7Attualmente impostato come %trophy%"
+  setMaterial:
+    name: "&6Imposta Materiale"
+    lore: "&7Trascina e rilascia un oggetto su questo slot per impostarlo come nuovo materiale"
+    failed: "&cTrascina un oggetto per impostarlo come materiale."
+  setSlot:
+    name: "&3Imposta Slot"
+    lore: "&bAttualmente impostato su: &c%trophySlot%"
+    invalid: "&cLo slot selezionato non è valido o è già in uso"
+  setLore:
+    name: "&eImposta descrizione"
+    lore: "&7Per andare a capo usa un backslash (\\)"
+  delete:
+    name: "&cElimina Trofeo"
+    lore: "&7Rimuovi questo trofeo dal sistema"
+  back: "&7Indietro"
+  create: "&aCrea"
+  manage: "&bGestisci"
+  cancel: "&cAnnulla"
+  confirm: "&aConferma"
+  give: "&aDai Trofeo"
+  list: "&eLista Trofei"
+  reload: "&bRicarica Config"
+
+input:
+  cancel: "&7Digita 'cancel' per annullare l'inserimento" # do NOT change the 'cancel'
+  canceled: "&cInserimento annullato"
+
+player:
+  noTrophyInInv: "&cDevi avere l'oggetto trofeo nel tuo inventario per posizionarlo!"
+  lockedTrophy: "&cTrofeo bloccato"
+  trophyNotPlacable: "&cNon puoi piazzare un trofeo!"

@@ -1,0 +1,74 @@
+default-command: "trophies" # /trophies
+
+#######################################
+#      Placeholders available:        #
+# %trophy% -> trophy Name             #
+# %trophyId% -> trophy ID             #
+# %trophySlot% -> trophy Slot         #
+# %trophyMaterial% -> trophy Material #
+# %trophyLore% -> trophy Lore         #
+# %player% -> player Name             #
+# %playerDisplayname% -> player Alias #
+#######################################
+
+command:
+  delete: "&cTrophy %trophyId% &cdeleted"
+  give: "&aTrophy %trophyId% &agiven to the player &e%player%"
+  purge: "&cPlayer &e%player% &cpurged"
+  remove: "&aTrophy %trophyId% &aremoved from player &e%player%"
+
+trophy:
+  placed: "&aTrophy %trophy% &aplaced in your showcase!"
+  inexistent: "&cThe trophy %trophy% &cdoes not exist"
+  id: "&aId set to %trophyId%"
+  name: "&aTrophy display name set to %trophy%"
+  material: "&eMaterial updated to &f%trophyMaterial%"
+  slot: "&3Slot set to &e%trophySlot%"
+  lore: "&eNew lore set as: %trophyLore%"
+  deleted: "&cTrophy &r%trophy% &cdeleted"
+  given: "&aYou received the trophy %trophy%&r&a!"
+
+gui:
+  showcase: "&6&lYour trophies"
+  create: "&d&lTrophy creation"
+  manage: "&d&lManage your Trophy"
+  list: "&a&lAll trophies"
+  admin: "&e&lAdmin GUI"
+  noSlot: "&cTrophies with no slot"
+
+buttons:
+  setName:
+    name: "&6Set Name"
+    lore: "&7Currently set as %trophy%"
+  setMaterial:
+    name: "&6Set Material"
+    lore: "&7Drag and drop an item on this slot and set it as the new material"
+    failed: "&cDrag an item to set it as material."
+  setSlot:
+    name: "&3Set Slot"
+    lore: "&bCurrently set to: &c%trophySlot%"
+    invalid: "&cThe slot selected is not valid or already in use"
+  setLore:
+    name: "&eSet lore"
+    lore: "&7To go on a new line use a backslash (\\)"
+  delete:
+    name: "&cDelete Trophy"
+    lore: "&7Remove this trophy from the system"
+  back: "&7Back"
+  create: "&aCreate"
+  manage: "&bManage"
+  cancel: "&cCancel"
+  confirm: "&aConfirm"
+  give: "&aGive Trophy"
+  list: "&eList Trophies"
+  reload: "&bReload Config"
+
+input:
+  cancel: "&7Type 'cancel' to cancel the input" # do NOT change the 'cancel'
+  canceled: "&cInput canceled"
+
+player:
+  noTrophyInInv: "&cYou need to have the trophy item in your inventory to place it!"
+  lockedTrophy: "&cLocked trophy"
+  trophyNotPlacable: "&cYou cannot place a trophy!"
+

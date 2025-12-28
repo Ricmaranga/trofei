@@ -1,0 +1,23 @@
+name: trophies
+version: '${project.version}'
+main: it.pose.trophies.Trophies
+api-version: '1.18'
+prefix: Trophies
+load: STARTUP
+authors: [ Ricmaranga ]
+description:
+
+commands:
+  trophies:
+    description: Manage your trophies
+    usage: /trophies [admin|delete|give|help|list|purge|player|reload|remove]
+    aliases: [ ]
+    permission: trophies.use
+    permission-message: You don't have permission to use this command!
+permissions:
+  trophies.admin:
+    description: Admin permissions for trophies
+    default: op
+  trophies.use:
+    description: Use trophies command
+    default: true

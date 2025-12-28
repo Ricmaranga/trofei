@@ -1,0 +1,72 @@
+default-command: "trophees" # /trophees
+
+#######################################
+#      Placeholders disponible:       #
+# %trophy% -> trophy Name             #
+# %trophyId% -> trophy ID             #
+# %trophySlot% -> trophy Slot         #
+# %trophyMaterial% -> trophy Material #
+# %trophyLore% -> trophy Lore         #
+# %player% -> player Name             #
+# %playerDisplayname% -> player Alias #
+#######################################
+
+command:
+  delete: "&cTrophée %trophyId% &csupprimé"
+  give: "&aTrophée %trophyId% &adonné au joueur &e%player%"
+  purge: "&cJoueur &e%player% &cpurgé"
+  remove: "&aTrophée %trophyId% &aretiré du joueur &e%player%"
+
+trophy:
+  placed: "&aTrophée %trophy% &aplacé dans votre vitrine !"
+  inexistent: "&cLe trophée %trophy% &cn'existe pas"
+  id: "&aID défini sur %trophyId%"
+  name: "&aNom d'affichage du trophée défini sur %trophy%"
+  material: "&eMatériau mis à jour vers &f%trophyMaterial%"
+  slot: "&3Emplacement défini sur &e%trophySlot%"
+  lore: "&eNouvelle description définie : %trophyLore%"
+  deleted: "&cTrophée &r%trophy% &csupprimé"
+
+gui:
+  showcase: "&6&lVos trophées"
+  create: "&d&lCréation de trophée"
+  manage: "&d&lGérer votre trophée"
+  list: "&a&lTous les trophées"
+  admin: "&e&lMenu Admin"
+  noSlot: "&cTrophées sans emplacement"
+
+buttons:
+  setName:
+    name: "&6Définir le nom"
+    lore: "&7Actuellement défini sur %trophy%"
+  setMaterial:
+    name: "&6Définir le matériau"
+    lore: "&7Glissez-déposez un item sur cet emplacement pour le définir comme nouveau matériau"
+    failed: "&cGlissez un item pour le définir comme matériau."
+  setSlot:
+    name: "&3Définir l'emplacement"
+    lore: "&bActuellement défini sur : &c%trophySlot%"
+    invalid: "&cL'emplacement sélectionné est invalide ou déjà utilisé"
+  setLore:
+    name: "&eDéfinir la description"
+    lore: "&7Pour aller à la ligne, utilisez un antislash (\\)"
+  delete:
+    name: "&cSupprimer le trophée"
+    lore: "&7Retirer ce trophée du système"
+  back: "&7Retour"
+  create: "&aCréer"
+  manage: "&bGérer"
+  cancel: "&cAnnuler"
+  confirm: "&aConfirmer"
+  give: "&aDonner un trophée"
+  list: "&eLister les trophées"
+  reload: "&bRecharger la config"
+
+input:
+  cancel: "&7Tapez 'cancel' pour annuler la saisie" # do NOT change the 'cancel'
+  canceled: "&cSaisie annulée"
+
+player:
+  noTrophyInInv: "&cVous devez avoir l'item du trophée dans votre inventaire pour le placer !"
+  lockedTrophy: "&cTrophée verrouillé"
+  trophyNotPlacable: "&cVous ne pouvez pas placer un trophée !"
