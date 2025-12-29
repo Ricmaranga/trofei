@@ -80,10 +80,6 @@ public class Trophies extends JavaPlugin {
             new Metrics(this, 25989);
             new UpdateChecker(this, 125457).checkForUpdate();
 
-            getServer().getPluginManager().registerEvents(new EventListener(), this);
-
-            getCommand("trophies").setExecutor(this);
-
             getLogger().info("Trophies enabled successfully!");
 
         } catch (Exception e) {

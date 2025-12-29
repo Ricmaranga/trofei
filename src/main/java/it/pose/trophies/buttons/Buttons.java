@@ -1,19 +1,15 @@
 package it.pose.trophies.buttons;
 
-import it.pose.trophies.ItemSerialization;
-import it.pose.trophies.Lang;
-import it.pose.trophies.Trophies;
+import it.pose.trophies.*;
 import it.pose.trophies.core.Button;
 import it.pose.trophies.core.Menu;
 import it.pose.trophies.gui.AdminGUI;
 import it.pose.trophies.gui.AllTrophiesGUI;
-import it.pose.trophies.gui.NoSlotTrophiesGUI;
 import it.pose.trophies.gui.TrophyGUI;
 import it.pose.trophies.inputs.ChatInputRegistry;
 import it.pose.trophies.listeners.EventListener;
 import it.pose.trophies.managers.ConfigManager;
 import it.pose.trophies.managers.TrophyManager;
-import it.pose.trophies.Trophy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -37,7 +33,7 @@ public class Buttons {
     public static Button createTrophy() {
         return Button.builder()
                 .icon(Material.BAMBOO)
-                .name("§5Create trophy")
+                .name("§5§lCreate trophy")
                 .onClick(e -> {
                     Player player = (Player) e.getWhoClicked();
                     player.closeInventory();
@@ -48,8 +44,7 @@ public class Buttons {
                             player,
                             List.of("id"),
                             input -> {
-                                trophy.setId(ChatColor.translateAlternateColorCodes('&', input));
-                                player.sendMessage(trophy.getDisplayName());
+                                trophy.setId(input);
                                 player.sendMessage(Lang.msg("trophy.id").replace(trophy).toString());
 
                                 TrophyGUI.open(player, trophy);
@@ -72,18 +67,6 @@ public class Buttons {
                 .build();
     }
 
-    public static Button trophiesWithNoSlot() {
-        return Button.builder()
-                .icon(Material.PAPER)
-                .name(Lang.msg("gui.noSlot").toString())
-                .onClick(e -> {
-                    Player player = (Player) e.getWhoClicked();
-                    player.closeInventory();
-                    NoSlotTrophiesGUI.open(player);
-                })
-                .build();
-    }
-
     public static Button setName(Trophy trophy) {
         return Button.builder()
                 .icon(Material.NAME_TAG)
@@ -98,7 +81,7 @@ public class Buttons {
                             player,
                             List.of("name"),
                             input -> {
-                                trophy.setDisplayName(ChatColor.translateAlternateColorCodes('&', input));
+                                trophy.setDisplayName(ColorUtils.colorize(input));
                                 trophy.markDirty();
                                 player.sendMessage(Lang.msg("trophy.name").replace(trophy).toString());
                                 Bukkit.getScheduler().runTask(Trophies.getInstance(), () -> TrophyGUI.open(player, trophy));

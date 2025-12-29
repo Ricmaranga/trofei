@@ -44,6 +44,7 @@ public class ShowcaseGUI extends Menu {
             if (!PlayerDataManager.hasUnlocked(player, trophy)) {
                 buttons.put(slot, getLockedButton(slot));
             }
+
             // Case 3: Player has ALREADY placed it
             else if (PlayerDataManager.hasPlaced(player, trophy)) {
                 // Just a visual button, no click action needed (or maybe a message)
@@ -53,6 +54,7 @@ public class ShowcaseGUI extends Menu {
                         .lore(trophy.getLore())
                         .build());
             }
+
             // Case 4: Player unlocked it, but hasn't placed it yet
             else {
                 ItemStack needed = trophy.toItemStack();
@@ -64,8 +66,8 @@ public class ShowcaseGUI extends Menu {
                     // Grey pane showing "You don't have this trophy"
                     buttons.put(slot, Button.builder()
                             .icon(Material.GRAY_STAINED_GLASS_PANE)
-                            .name("§7" + trophy.getId())
-                            .lore("§8You don’t have this trophy")
+                            .name("§7" + trophy.getDisplayName())
+                            .lore("§8You don’t have this trophy in your inv")
                             .build());
                 }
             }

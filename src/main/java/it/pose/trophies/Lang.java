@@ -9,6 +9,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import static it.pose.trophies.ColorUtils.colorize;
 
@@ -16,6 +17,9 @@ public class Lang {
 
     private static final Map<String, FileConfiguration> languages = new HashMap<>();
     private static String activeLang = "en";
+
+    // Regex for Hex colors in the format &#RRGGBB
+    private static final Pattern HEX_PATTERN = Pattern.compile("&#([A-Fa-f0-9]{6})");
 
     public static void init(JavaPlugin plugin) {
         File langFolder = new File(plugin.getDataFolder(), "languages");
@@ -53,21 +57,13 @@ public class Lang {
         return colorize(raw != null ? raw : "&cMissing key: " + key);
     }
 
-    public static String get(String key, Map<String, Object> placeholders) {
-        String msg = get(key);
-        for (Map.Entry<String, Object> entry : placeholders.entrySet()) {
-            String val = entry.getValue() == null ? "" : String.valueOf(entry.getValue());
-            msg = msg.replace("%" + entry.getKey() + "%", val);
-        }
-        return msg;
-    }
-
+    // --- MAIN METHOD: Handles the actual replacement logic ---
     public static String get(String key, Object... args) {
         String msg = get(key);
         for (int i = 0; i < args.length; i += 2) {
             String placeholder = String.valueOf(args[i]);
-            String value = (i + 1 < args.length && args[i + 1] != null) ? String.valueOf(args[i + 1]) : "";
-            msg = msg.replace("%" + placeholder + "%", value);
+            String val = (i + 1 < args.length && args[i + 1] != null) ? String.valueOf(args[i + 1]) : "";
+            msg = msg.replace("%" + placeholder + "%", val);
         }
         return msg;
     }

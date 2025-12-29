@@ -43,9 +43,8 @@ public class AdminGUI extends Menu {
         }
 
         // 3. Functional Buttons
-        buttons.put(11, Buttons.createTrophy());
-        buttons.put(13, Buttons.listAllTrophies());
-        buttons.put(15, Buttons.trophiesWithNoSlot());
+        buttons.put(12, Buttons.createTrophy());
+        buttons.put(14, Buttons.listAllTrophies());
         buttons.put(18, Buttons.closeButton());
 
         return buttons;

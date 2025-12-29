@@ -129,12 +129,12 @@ public class Trophy implements ConfigurationSerializable {
     public ItemStack toItemStack() {
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', displayName));
+        meta.setDisplayName(ColorUtils.colorize(displayName));
         meta.setLore(this.lore);
 
         if (lore != null && !lore.isEmpty()) {
             meta.setLore(lore.stream()
-                    .map(line -> ChatColor.translateAlternateColorCodes('&', line))
+                    .map(ColorUtils::colorize)
                     .toList());
         }
 

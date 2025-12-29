@@ -27,22 +27,22 @@ trophy:
   lore: "&eNew lore set as: %trophyLore%"
   deleted: "&cTrophy &r%trophy% &cdeleted"
   given: "&aYou received the trophy %trophy%&r&a!"
+  invalidSlot: "&cThe current slot is not valid, change it before closing the menu"
 
 gui:
   showcase: "&6&lYour trophies"
   create: "&d&lTrophy creation"
-  manage: "&d&lManage your Trophy"
+  manage: "&d&lManage the Trophy"
   list: "&a&lAll trophies"
   admin: "&e&lAdmin GUI"
-  noSlot: "&cTrophies with no slot"
 
 buttons:
   setName:
     name: "&6Set Name"
-    lore: "&7Currently set as %trophy%"
+    lore: "&7Currently set to %trophy%"
   setMaterial:
     name: "&6Set Material"
-    lore: "&7Drag and drop an item on this slot and set it as the new material"
+    lore: "&7Drag and drop an item on this slot to set it as the new material"
     failed: "&cDrag an item to set it as material."
   setSlot:
     name: "&3Set Slot"
@@ -70,5 +70,13 @@ input:
 player:
   noTrophyInInv: "&cYou need to have the trophy item in your inventory to place it!"
   lockedTrophy: "&cLocked trophy"
-  trophyNotPlacable: "&cYou cannot place a trophy!"
+  trophyNotPlaceable: "&cYou cannot place a trophy!"
+
+help:
+  admin: ""
+  delete: ""
+  give: ""
+  purge: ""
+  reload: ""
+  remove: ""
 

@@ -116,7 +116,7 @@ public class PlayerDataManager {
     }
 
     public static Map<UUID, Boolean> getTrophies(Player player) {
-        return playersTrophies.computeIfAbsent(player.getUniqueId(), k -> new HashMap<>());
+        return playersTrophies.get(player.getUniqueId());
     }
 
     public void loadPlayer(UUID uuid) {
