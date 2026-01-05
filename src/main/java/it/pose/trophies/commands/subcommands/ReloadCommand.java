@@ -33,7 +33,7 @@ public class ReloadCommand extends SubCommand {
         ConfigManager.reloadTrophiesConfig();
         TrophyManager.loadTrophies();
         PlayerDataManager.loadAll();
-        player.sendMessage("§6[§5§lTrophies§r§5]");
+        player.sendMessage("§6[§5§lTrophies§r§6]");
         player.sendMessage("§a✔ Config reloaded");
         player.sendMessage("§a✔ Language loaded: §e" + Lang.getActiveLang());
         player.sendMessage("§a✔ Trophies loaded: §e" + TrophyManager.getAllTrophies().size());

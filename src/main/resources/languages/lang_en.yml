@@ -2,6 +2,7 @@ default-command: "trophies" # /trophies
 
 #######################################
 #      Placeholders available:        #
+#      (Not in every message)         #
 # %trophy% -> trophy Name             #
 # %trophyId% -> trophy ID             #
 # %trophySlot% -> trophy Slot         #
@@ -28,6 +29,7 @@ trophy:
   deleted: "&cTrophy &r%trophy% &cdeleted"
   given: "&aYou received the trophy %trophy%&r&a!"
   invalidSlot: "&cThe current slot is not valid, change it before closing the menu"
+  invFull: "&cInventory full! Trophy dropped at your feet"
 
 gui:
   showcase: "&6&lYour trophies"
@@ -50,7 +52,7 @@ buttons:
     invalid: "&cThe slot selected is not valid or already in use"
   setLore:
     name: "&eSet lore"
-    lore: "&7To go on a new line use a backslash (\\)"
+    lore: "&7To go on a new line use a backslash (\\)" # Leave the double slash
   delete:
     name: "&cDelete Trophy"
     lore: "&7Remove this trophy from the system"
@@ -73,10 +75,10 @@ player:
   trophyNotPlaceable: "&cYou cannot place a trophy!"
 
 help:
-  admin: ""
-  delete: ""
-  give: ""
-  purge: ""
-  reload: ""
-  remove: ""
+  admin: "&5/trophies admin &eto open the Admin GUI"
+  delete: "&c/tropphies delete <trophyId> &eto delete a trophy from the system"
+  give: "&a/trophies give <player> <trophyId> &eto award a trophy to a player"
+  purge: "&4/trophies purge <player> &eto purge all the trophies from a player"
+  reload: "&5/trophies reload &eto reload the plugin"
+  remove: "&c/trophies remove <player> <trophyId> &eto remove a trophy from a player"
 

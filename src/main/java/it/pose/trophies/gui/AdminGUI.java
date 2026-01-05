@@ -29,20 +29,17 @@ public class AdminGUI extends Menu {
     public Map<Integer, Button> getButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
 
-        // 1. Decoration Button
         Button glass = Button.builder()
                 .icon(glassPanel)
                 .name(" ")
                 .build();
 
-        // 2. Fill Borders
         for (int slot = 0; slot < 27; slot++) {
             if (slot <= 9 || slot >= 17) {
                 buttons.put(slot, glass);
             }
         }
 
-        // 3. Functional Buttons
         buttons.put(12, Buttons.createTrophy());
         buttons.put(14, Buttons.listAllTrophies());
         buttons.put(18, Buttons.closeButton());

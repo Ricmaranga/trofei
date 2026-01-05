@@ -1,7 +1,7 @@
 default-command: "trophees" # /trophees
 
 #######################################
-#      Placeholders disponible:       #
+#     Placeholders disponibles:       #
 # %trophy% -> trophy Name             #
 # %trophyId% -> trophy ID             #
 # %trophySlot% -> trophy Slot         #
@@ -20,20 +20,22 @@ command:
 trophy:
   placed: "&aTrophée %trophy% &aplacé dans votre vitrine !"
   inexistent: "&cLe trophée %trophy% &cn'existe pas"
-  id: "&aID défini sur %trophyId%"
+  id: "&aId défini sur %trophyId%"
   name: "&aNom d'affichage du trophée défini sur %trophy%"
-  material: "&eMatériau mis à jour vers &f%trophyMaterial%"
+  material: "&eMatériau mis à jour à &f%trophyMaterial%"
   slot: "&3Emplacement défini sur &e%trophySlot%"
-  lore: "&eNouvelle description définie : %trophyLore%"
+  lore: "&eNouvelle description définie comme : %trophyLore%"
   deleted: "&cTrophée &r%trophy% &csupprimé"
+  given: "&aVous avez reçu le trophée %trophy%&r&a !"
+  invalidSlot: "&cL'emplacement actuel n'est pas valide, changez-le avant de fermer le menu"
+  invFull: "&cInventaire plein ! Trophée déposé à vos pieds"
 
 gui:
   showcase: "&6&lVos trophées"
   create: "&d&lCréation de trophée"
-  manage: "&d&lGérer votre trophée"
+  manage: "&d&lGérer le trophée"
   list: "&a&lTous les trophées"
-  admin: "&e&lMenu Admin"
-  noSlot: "&cTrophées sans emplacement"
+  admin: "&e&lInterface Admin"
 
 buttons:
   setName:
@@ -41,12 +43,12 @@ buttons:
     lore: "&7Actuellement défini sur %trophy%"
   setMaterial:
     name: "&6Définir le matériau"
-    lore: "&7Glissez-déposez un item sur cet emplacement pour le définir comme nouveau matériau"
-    failed: "&cGlissez un item pour le définir comme matériau."
+    lore: "&7Glissez-déposez un objet sur cet emplacement pour le définir comme nouveau matériau"
+    failed: "&cGlissez un objet pour le définir comme matériau."
   setSlot:
     name: "&3Définir l'emplacement"
     lore: "&bActuellement défini sur : &c%trophySlot%"
-    invalid: "&cL'emplacement sélectionné est invalide ou déjà utilisé"
+    invalid: "&cL'emplacement sélectionné n'est pas valide ou est déjà utilisé"
   setLore:
     name: "&eDéfinir la description"
     lore: "&7Pour aller à la ligne, utilisez un antislash (\\)"
@@ -58,15 +60,23 @@ buttons:
   manage: "&bGérer"
   cancel: "&cAnnuler"
   confirm: "&aConfirmer"
-  give: "&aDonner un trophée"
+  give: "&aDonner le trophée"
   list: "&eLister les trophées"
   reload: "&bRecharger la config"
 
 input:
-  cancel: "&7Tapez 'cancel' pour annuler la saisie" # do NOT change the 'cancel'
-  canceled: "&cSaisie annulée"
+  cancel: "&7Tapez 'cancel' pour annuler l'entrée" # do NOT change the 'cancel'
+  canceled: "&cEntrée annulée"
 
 player:
-  noTrophyInInv: "&cVous devez avoir l'item du trophée dans votre inventaire pour le placer !"
+  noTrophyInInv: "&cVous devez avoir le trophée dans votre inventaire pour le placer !"
   lockedTrophy: "&cTrophée verrouillé"
-  trophyNotPlacable: "&cVous ne pouvez pas placer un trophée !"
+  trophyNotPlaceable: "&cVous ne pouvez pas placer un trophée !"
+
+help:
+  admin: "&5/trophies admin &epour ouvrir l'interface Admin"
+  delete: "&c/trophies delete <trophyId> &epour supprimer un trophée du système"
+  give: "&a/trophies give <player> <trophyId> &epour attribuer un trophée à un joueur"
+  purge: "&4/trophies purge <player> &epour purger tous les trophées d'un joueur"
+  reload: "&5/trophies reload &epour recharger le plugin"
+  remove: "&c/trophies remove <player> <trophyId> &epour retirer un trophée d'un joueur"

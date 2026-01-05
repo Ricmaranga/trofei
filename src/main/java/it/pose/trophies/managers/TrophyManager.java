@@ -128,9 +128,9 @@ public class TrophyManager {
 
         if (!leftovers.isEmpty()) {
             player.getWorld().dropItemNaturally(player.getLocation(), trophyItem);
-            player.sendMessage("§cInventory full! Trophy dropped at your feet.");
+            player.sendMessage(Lang.msg("trophy.invFull").replace(player).replace(trophy).toString());
         } else {
-            player.sendMessage(Lang.msg("trophy.given").replace(trophy).toString());
+            player.sendMessage(Lang.msg("trophy.given").replace(trophy).replace(player).toString());
         }
 
         player.updateInventory();

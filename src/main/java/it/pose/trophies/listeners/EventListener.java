@@ -82,7 +82,7 @@ public class EventListener implements Listener {
     public void onTrophyPlace(BlockPlaceEvent e) {
         if (e.getBlock() instanceof Trophy) {
             e.setCancelled(true);
-            e.getPlayer().sendMessage(Lang.get("player.trophyNotPlacable"));
+            e.getPlayer().sendMessage(Lang.get("player.trophyNotPlaceable"));
         }
     }
 

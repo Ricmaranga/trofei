@@ -12,10 +12,7 @@ import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.checkerframework.checker.units.qual.A;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class CommandsManager implements CommandExecutor, TabExecutor {
@@ -23,6 +20,7 @@ public class CommandsManager implements CommandExecutor, TabExecutor {
     private final ArrayList<SubCommand> subcommand = new ArrayList<>();
     private final Logger log = Trophies.getInstance().getLogger();
     private final ArrayList<SubCommand> consoleSubcommands = new ArrayList<>();
+    private final List<String> trophiesList = Trophies.trophies.values().stream().map(Trophy::getId).toList();
 
     public CommandsManager() {
         subcommand.add(new ReloadCommand());
@@ -45,7 +43,6 @@ public class CommandsManager implements CommandExecutor, TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        // 1. Check for Restart Command FIRST
         if (args.length > 0 && args[0].equalsIgnoreCase("restart")) {
             if (!sender.hasPermission("trophies.admin")) {
                 sender.sendMessage("§cNo permission.");
@@ -112,13 +109,15 @@ public class CommandsManager implements CommandExecutor, TabExecutor {
 
         if (length == 2) {
             String firstArg = args[0];
-            if (firstArg.equals("give") || firstArg.equals("purge") || firstArg.equals("remove")) {
+            if (Set.of("give", "purge", "remove", "player").contains(firstArg)) {
                 return Trophies.getInstance()
                         .getServer()
                         .getOnlinePlayers()
                         .stream()
                         .map(Player::getName)
                         .toList();
+            } else if (Set.of("delete").contains(firstArg)) {
+                return trophiesList;
             }
             return Collections.emptyList();
         }
@@ -127,10 +126,7 @@ public class CommandsManager implements CommandExecutor, TabExecutor {
             String firstArg = args[0];
 
             if (firstArg.equals("give")) {
-                return Trophies.trophies.values()
-                        .stream()
-                        .map(Trophy::getId)
-                        .toList();
+                return trophiesList;
             }
 
             if (firstArg.equals("remove")) {

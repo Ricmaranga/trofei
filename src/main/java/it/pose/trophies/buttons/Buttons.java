@@ -37,13 +37,17 @@ public class Buttons {
                 .onClick(e -> {
                     Player player = (Player) e.getWhoClicked();
                     player.closeInventory();
-                    player.sendMessage("Set the trophy ID");
-                    player.sendMessage("This ID will be used to give the trophy to the players");
                     Trophy trophy = new Trophy();
                     ChatInputRegistry.waitFor(
                             player,
                             List.of("id"),
                             input -> {
+                                if (TrophyManager.getTrophyByName(input) != null) {
+                                    player.sendMessage("§cError: A trophy with this ID already exists.");
+                                    AdminGUI.open(player);
+                                    return;
+                                }
+
                                 trophy.setId(input);
                                 player.sendMessage(Lang.msg("trophy.id").replace(trophy).toString());
 
@@ -136,11 +140,15 @@ public class Buttons {
                         return;
                     }
 
+                    if (player.getOpenInventory().getTopInventory().getHolder() instanceof Menu menu) menu.ignoreNextClose();
+
                     ItemStack raw = cursor.clone();
                     ItemMeta meta = raw.getItemMeta();
                     if (meta != null && meta.hasLore()) {
                         List<String> lore = meta.getLore();
-                        if (lore.remove(Lang.msg("buttons.setMaterial.lore").replace(trophy).toString())) {
+                        String loreToRemove = Lang.msg("buttons.setMaterial.lore").replace(trophy).toString();
+                        if (lore.contains(loreToRemove)) {
+                            lore.remove(loreToRemove);
                             meta.setLore(lore);
                         }
                     }

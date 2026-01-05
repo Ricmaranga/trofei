@@ -24,13 +24,13 @@ public class DeleteCommand extends SubCommand {
 
     @Override
     public String getSyntax() {
-        return Lang.get("usage") + " /" + Lang.get("default-command") + "delete <id|name>";
+        return Lang.get("usage") + " /" + Lang.get("default-command") + "delete <trophyId>";
     }
 
     @Override
     public void perform(Player player, String[] args) {
         if (args.length < 2) {
-            ((Player) player).sendMessage(Lang.get("usage") + " /" + Lang.get("default-command") + " delete <id|name>");
+            ((Player) player).sendMessage(Lang.get("usage") + " /" + Lang.get("default-command") + " delete <trophyId>");
             return;
         }
 
@@ -51,7 +51,7 @@ public class DeleteCommand extends SubCommand {
 
         TrophyManager.deleteTrophy(trophy);
         PlayerDataManager.removeTrophyFromAllPlayers(trophy.getUUID());
-        player.sendMessage(Lang.get("command.delete", Map.of("trophy", trophy.getDisplayName())));
+        player.sendMessage(Lang.msg("command.delete").replace(trophy).toString());
 
     }
 }

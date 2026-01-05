@@ -14,34 +14,36 @@ default-command: "trofei" # /trofei
 command:
   delete: "&cTrofeo %trophyId% &celiminato"
   give: "&aTrofeo %trophyId% &adato al giocatore &e%player%"
-  purge: "&cGiocatore &e%player% &cpurgato"
+  purge: "&cGiocatore &e%player% &cripulito (trofei azzerati)"
   remove: "&aTrofeo %trophyId% &arimosso dal giocatore &e%player%"
 
 trophy:
-  placed: "&aTrofeo %trophy% &aposizionato nella tua bacheca!"
+  placed: "&aTrofeo %trophy% &apiazzato nella tua bacheca!"
   inexistent: "&cIl trofeo %trophy% &cnon esiste"
-  id: "&aID impostato su %trophyId%"
+  id: "&aId impostato su %trophyId%"
   name: "&aNome visualizzato del trofeo impostato su %trophy%"
   material: "&eMateriale aggiornato a &f%trophyMaterial%"
   slot: "&3Slot impostato su &e%trophySlot%"
   lore: "&eNuova descrizione impostata come: %trophyLore%"
   deleted: "&cTrofeo &r%trophy% &celiminato"
+  given: "&aHai ricevuto il trofeo %trophy%&r&a!"
+  invalidSlot: "&cLo slot attuale non è valido, cambialo prima di chiudere il menu"
+  invFull: "&cInventario pieno! Il trofeo è caduto ai tuoi piedi"
 
 gui:
   showcase: "&6&lI tuoi trofei"
-  create: "&d&lCreazione trofeo"
-  manage: "&d&lGestisci il tuo trofeo"
+  create: "&d&lCreazione Trofeo"
+  manage: "&d&lGestisci il Trofeo"
   list: "&a&lTutti i trofei"
-  admin: "&e&lMenu Admin"
-  noSlot: "&cTrofei senza slot"
+  admin: "&e&lGUI Amministratore"
 
 buttons:
   setName:
     name: "&6Imposta Nome"
-    lore: "&7Attualmente impostato come %trophy%"
+    lore: "&7Attualmente impostato su %trophy%"
   setMaterial:
     name: "&6Imposta Materiale"
-    lore: "&7Trascina e rilascia un oggetto su questo slot per impostarlo come nuovo materiale"
+    lore: "&7Trascina un oggetto in questo slot per impostarlo come nuovo materiale"
     failed: "&cTrascina un oggetto per impostarlo come materiale."
   setSlot:
     name: "&3Imposta Slot"
@@ -49,7 +51,7 @@ buttons:
     invalid: "&cLo slot selezionato non è valido o è già in uso"
   setLore:
     name: "&eImposta descrizione"
-    lore: "&7Per andare a capo usa un backslash (\\)"
+    lore: "&7Per andare a capo usa un backslash (\\)" # Lasciare il doppio slash
   delete:
     name: "&cElimina Trofeo"
     lore: "&7Rimuovi questo trofeo dal sistema"
@@ -63,10 +65,19 @@ buttons:
   reload: "&bRicarica Config"
 
 input:
-  cancel: "&7Digita 'cancel' per annullare l'inserimento" # do NOT change the 'cancel'
+  id: "&eInserisci l'id del trofeo, sarà usato nei comandi"
+  cancel: "&7Scrivi 'cancel' per annullare l'inserimento" # NON cambiare il 'cancel'
   canceled: "&cInserimento annullato"
 
 player:
-  noTrophyInInv: "&cDevi avere l'oggetto trofeo nel tuo inventario per posizionarlo!"
+  noTrophyInInv: "&cDevi avere il trofeo nell'inventario per piazzarlo!"
   lockedTrophy: "&cTrofeo bloccato"
-  trophyNotPlacable: "&cNon puoi piazzare un trofeo!"
+  trophyNotPlaceable: "&cNon puoi piazzare il trofeo!"
+
+help:
+  admin: "&5/trophies admin &eper aprire la GUI Admin"
+  delete: "&c/trophies delete <trophyId> &eper eliminare un trofeo dal sistema"
+  give: "&a/trophies give <player> <trophyId> &eper assegnare un trofeo a un giocatore"
+  purge: "&4/trophies purge <player> &eper eliminare tutti i trofei di un giocatore"
+  reload: "&5/trophies reload &eper ricaricare il plugin"
+  remove: "&c/trophies remove <player> <trophyId> &eper rimuovere un trofeo da un giocatore"

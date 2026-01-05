@@ -173,10 +173,12 @@ public class PlayerDataManager {
         }
     }
 
-    public static void removeTrophy(String player, Trophy trophy) {
-        if (playersTrophies.containsKey(Bukkit.getPlayer(player).getUniqueId())) {
-            getTrophies(Bukkit.getPlayer(player)).remove(trophy.getUUID());
-            playersTrophies.get(Bukkit.getPlayer(player).getUniqueId()).remove(trophy.getUUID());
+    public static void removeTrophy(Player player, Trophy trophy) {
+        if (playersTrophies.containsKey(player.getUniqueId())) {
+            Map<UUID, Boolean> data = getTrophies(player);
+            data.remove(trophy.getUUID());
+            playersTrophies.get(player.getUniqueId()).remove(trophy.getUUID());
+            savePlayerData(player);
         }
     }
 

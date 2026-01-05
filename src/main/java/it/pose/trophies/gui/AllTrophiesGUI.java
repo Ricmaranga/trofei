@@ -14,7 +14,7 @@ import java.util.Map;
 public class AllTrophiesGUI extends Menu {
 
     public AllTrophiesGUI() {
-        super(Lang.get("gui.list-title"), ConfigManager.getConfig().getInt("showcase-rows"));
+        super(Lang.get("gui.list"), ConfigManager.getConfig().getInt("showcase-rows"));
     }
 
     public static void open(Player player) {
@@ -27,15 +27,14 @@ public class AllTrophiesGUI extends Menu {
 
         for (Trophy trophy : TrophyManager.getAllTrophies().values()) {
             if (trophy.getSlot() != -1) {
-                // Create the button dynamically
                 Button trophyBtn = Button.builder()
                         .icon(trophy.getMaterial())
                         .name(trophy.getDisplayName())
                         .lore(trophy.getLore())
                         .onClick(e -> {
                             Player p = (Player) e.getWhoClicked();
-                            p.closeInventory(); // Optional, displayTo usually handles switch
-                            TrophyGUI.open(p, trophy); // USE NEW OPEN METHOD
+                            p.closeInventory();
+                            TrophyGUI.open(p, trophy);
                         })
                         .build();
 

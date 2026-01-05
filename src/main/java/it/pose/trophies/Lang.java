@@ -53,11 +53,9 @@ public class Lang {
     public static String get(String key) {
         FileConfiguration langFile = languages.getOrDefault(activeLang, languages.get("en"));
         String raw = langFile.getString(key);
-        // Use the new color() method here
         return colorize(raw != null ? raw : "&cMissing key: " + key);
     }
 
-    // --- MAIN METHOD: Handles the actual replacement logic ---
     public static String get(String key, Object... args) {
         String msg = get(key);
         for (int i = 0; i < args.length; i += 2) {

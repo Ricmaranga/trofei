@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * The abstract container for buttons.
- * Any GUI in your plugin (like AdminGUI, TrophyGUI) should extend this class.
+ * Any GUI in the plugin should extend this class.
  */
 public abstract class Menu implements InventoryHolder {
 
@@ -58,7 +58,7 @@ public abstract class Menu implements InventoryHolder {
 
         if (event.getClickedInventory() != event.getView().getTopInventory()) return;
 
-        event.setCancelled(true); // Default behavior
+        event.setCancelled(true);
 
         Map<Integer, Button> buttons = getButtons(player);
         int slot = event.getSlot();
@@ -83,6 +83,6 @@ public abstract class Menu implements InventoryHolder {
 
     @Override
     public Inventory getInventory() {
-        return null; // Not used directly
+        return null;
     }
 }
